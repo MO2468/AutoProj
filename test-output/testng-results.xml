@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="8621" started-at="2020-05-18T06:42:20Z" finished-at="2020-05-18T06:42:29Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="8621" started-at="2020-05-18T06:42:20Z" finished-at="2020-05-18T06:42:29Z">
+      <class name="com.ap.testcases.Test123">
+        <test-method status="PASS" signature="startUp()[pri:0, instance:com.ap.testcases.Test123@1cd072a9]" name="startUp" duration-ms="8605" started-at="2020-05-18T02:42:20Z" finished-at="2020-05-18T02:42:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startUp -->
+      </class> <!-- com.ap.testcases.Test123 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
