@@ -35,10 +35,25 @@ public TestBase(){
 	}
 }
 
+public static String machineType()
+{
+	String machine = propt.getProperty("machine");
+	if (machine.equalsIgnoreCase("mac"))
+	{
+		String macMachine = System.getProperty("user.dir") +"/src/main/resources/chromedriver";
+		return macMachine;
+	}
+	else
+	{
+		String windowMachine = System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe";
+		return windowMachine;
+	}
+}
+
 public static void initBrowser(){
 	String browser= propt.getProperty("browser");
 	if(browser.equalsIgnoreCase("chrome")){
-		System.setProperty("webdriver.chrome.driver", (System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe"));
+		System.setProperty("webdriver.chrome.driver", machineType() );
 		driver=new ChromeDriver();
 	}else if(browser.equalsIgnoreCase("firefox")){
 		
