@@ -17,6 +17,8 @@ public class HomePage extends TestBase {
 	WebElement CalendarDropdown;
 	@FindBy(css="a[title='Top ETFs']")
 	WebElement etfButton;
+	@FindBy(xpath ="//a[@title='Screeners']")
+	WebElement screeners;
 	
 	public HomePage(){
 		PageFactory.initElements(driver, this);
@@ -41,6 +43,10 @@ public class HomePage extends TestBase {
 		a.moveToElement(MarketsNav).build().perform();
 		a.moveToElement(etfButton).click().build().perform();
 		return new TopETFPage();
+	}
+	public WebElement getScreeners()
+	{
+		return screeners;
 	}
 	
 	
