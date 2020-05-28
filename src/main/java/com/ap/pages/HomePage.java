@@ -13,13 +13,16 @@ public class HomePage extends TestBase {
 	
 	@FindBy(xpath="//li[@data-subnav-type='networknav_root-6']/a[1]")
 	WebElement MarketsNav;
-	
 	@FindBy(xpath="//a[contains(@title,'Calendars')]")
 	WebElement CalendarDropdown;
+	@FindBy(css="a[title='Top ETFs']")
+	WebElement etfButton;
+	
 	public HomePage(){
 		PageFactory.initElements(driver, this);
-		
-	}
+		}
+	
+	
 	public CalendarPage clickonCalendar() throws InterruptedException{
 		Actions action = new Actions(driver);
 		
@@ -31,6 +34,13 @@ public class HomePage extends TestBase {
 	public CalendarPage clickonMarkets(){
 		MarketsNav.click();
 		return new CalendarPage();
+	}
+	
+	public TopETFPage clickonTopETF(){
+		Actions a = new Actions(driver);
+		a.moveToElement(MarketsNav).build().perform();
+		a.moveToElement(etfButton).click().build().perform();
+		return new TopETFPage();
 	}
 	
 	
