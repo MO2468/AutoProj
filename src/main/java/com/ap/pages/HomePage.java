@@ -17,6 +17,9 @@ public class HomePage extends TestBase {
 	WebElement CalendarDropdown;
 	@FindBy(css="a[title='Top ETFs']")
 	WebElement etfButton;
+
+	@FindBy(xpath="//a[contains(text(),'Premium')]")
+	WebElement PremiumNav;
 	
 	public HomePage(){
 		PageFactory.initElements(driver, this);
@@ -43,7 +46,11 @@ public class HomePage extends TestBase {
 		return new TopETFPage();
 	}
 	
-	
+	public void hoverOverPremium1(){
+		Actions action=new Actions(driver);
+		action.moveToElement(PremiumNav).build().perform();
+		
+		}
 	
 	
 	
