@@ -13,11 +13,11 @@ import com.ap.base.TestBase;
 import com.ap.pages.HomePage;
 import com.ap.pages.TopETFPage;
 
-public class HomePageTests extends TestBase {
+public class ETFTests extends TestBase {
 	HomePage hp;
 	TopETFPage etf;
 	
-	public HomePageTests(){
+	public ETFTests(){
 		super();
 	}
 	
@@ -27,13 +27,13 @@ public class HomePageTests extends TestBase {
 		hp=new HomePage();
 	}
 	
-	@Test(priority=1, enabled=true)
+	@Test(priority=1, enabled=false)
 	public void landingPage(){
 		String title=driver.getTitle();
 		Assert.assertEquals(title, "Yahoo Finance - Stock Market Live, Quotes, Business & Finance News");
 	}
 	
-	@Test(priority=2, enabled=true)
+	@Test(priority=2, enabled=false)
 	public void clickonTopETFButton(){
 		hp.clickonTopETF();
 		WebDriverWait wait = new WebDriverWait(driver, 5);
@@ -41,6 +41,27 @@ public class HomePageTests extends TestBase {
 		String title=driver.getTitle();
 		Assert.assertEquals(title, "Top ETFs Today - Yahoo Finance");
 	}
+	
+	@Test(priority=3, enabled=true)//positive
+	public void applyETFFilterspos() throws InterruptedException{
+		etf =hp.clickonTopETF();
+		etf.clickEditButton();
+		etf.selectPriceBetween("5","20");
+		Thread.sleep(2000);
+		}
+	
+	@Test(priority=4, enabled=false)//negative
+	public void applyETFFiltersneg() throws InterruptedException{
+		etf =hp.clickonTopETF();
+		etf.clickEditButton();
+		etf.selectPriceBetween("ab","20");
+		Thread.sleep(2000);
+		etf.selectPriceBetween("%!?","20");
+		Thread.sleep(2000);
+		etf.selectPriceBetween(" ","20");
+		Thread.sleep(2000);
+		}
+	
 	
 	@AfterMethod
 	public void tearDown(){
