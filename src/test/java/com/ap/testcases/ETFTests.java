@@ -27,13 +27,13 @@ public class ETFTests extends TestBase {
 		hp=new HomePage();
 	}
 	
-	@Test(priority=1, enabled=false)
+	@Test(priority=1, enabled=true)
 	public void landingPage(){
 		String title=driver.getTitle();
 		Assert.assertEquals(title, "Yahoo Finance - Stock Market Live, Quotes, Business & Finance News");
 	}
 	
-	@Test(priority=2, enabled=false)
+	@Test(priority=2, enabled=true)
 	public void clickonTopETFButton(){
 		hp.clickonTopETF();
 		WebDriverWait wait = new WebDriverWait(driver, 5);
@@ -47,20 +47,41 @@ public class ETFTests extends TestBase {
 		etf =hp.clickonTopETF();
 		etf.clickEditButton();
 		etf.selectPriceBetween("5","20");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
+		String results = etf.estimatedResults();
+		System.out.println(results);
 		}
 	
-	@Test(priority=4, enabled=false)//negative
-	public void applyETFFiltersneg() throws InterruptedException{
+	@Test(priority=4, enabled=true)//negative
+	public void applyETFFiltersneg1() throws InterruptedException{
 		etf =hp.clickonTopETF();
 		etf.clickEditButton();
 		etf.selectPriceBetween("ab","20");
 		Thread.sleep(2000);
+		String results = etf.estimatedResults();
+		Assert.assertEquals(results, "27");/*default will change to 27 due to fields
+												not accepting spec char*/
+	}
+	
+	@Test(priority=5, enabled=true)//negative
+	public void applyETFFiltersneg2() throws InterruptedException{
+		etf =hp.clickonTopETF();
+		etf.clickEditButton();
 		etf.selectPriceBetween("%!?","20");
 		Thread.sleep(2000);
+		String results = etf.estimatedResults();
+		Assert.assertEquals(results, "27");
+	}
+	@Test(priority=6, enabled=true)//negative
+	public void applyETFFiltersneg3() throws InterruptedException{
+		etf =hp.clickonTopETF();
+		etf.clickEditButton();
 		etf.selectPriceBetween(" ","20");
 		Thread.sleep(2000);
-		}
+		String results = etf.estimatedResults();
+		Assert.assertEquals(results, "433");
+	}
+	
 	
 	
 	@AfterMethod

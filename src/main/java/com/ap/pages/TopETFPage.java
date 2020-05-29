@@ -1,5 +1,6 @@
 package com.ap.pages;
 
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,12 +32,14 @@ public void clickEditButton(){
 public void selectPriceBetween(String field1, String field2){
 	pricedropdown.click();
 	betweenoption.click();
+	price1stfield.clear();//1st field has a default 10 value
 	price1stfield.sendKeys(field1);
 	price2ndfield.sendKeys(field2);
-	String results = estresults.getText();
-	System.out.println(results);
+	
 }
-	
-	
-	
+
+public String estimatedResults(){
+	return estresults.getText();
+
+}	
 }
