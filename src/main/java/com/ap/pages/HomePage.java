@@ -13,7 +13,7 @@ public class HomePage extends TestBase {
 	
 	@FindBy(xpath="//li[@data-subnav-type='networknav_root-6']/a[1]")
 	WebElement MarketsNav;
-	@FindBy(xpath="//a[contains(@title,'Calendars')]")
+	@FindBy(xpath="//*[@id='Nav-0-DesktopNav']/div/div[3]/div/nav/ul/li[6]/a")
 	WebElement CalendarDropdown;
 	@FindBy(css="a[title='Top ETFs']")
 	WebElement etfButton;
@@ -28,7 +28,7 @@ public class HomePage extends TestBase {
 		
 		action.moveToElement(MarketsNav).build().perform();
 		Thread.sleep(4000);
-		action.keyDown(Keys.ARROW_DOWN).click().build().perform();
+		action.moveToElement(CalendarDropdown).click().build().perform();
 		return new  CalendarPage();
 	}
 	public CalendarPage clickonMarkets(){
