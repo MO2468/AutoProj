@@ -3,37 +3,50 @@
 package com.ap.testcases;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.ap.base.TestBase;
 import com.ap.pages.HomePage;
 
+
 public class PremiumTest extends TestBase {
 	HomePage hp;
-	WebDriver driver;
+	//WebDriver driver;
 
 	public PremiumTest() {
 		super();// coming from TestBase constructor
 	}
 
-	@BeforeMethod
+	@BeforeTest
 	public void browserInitiazation() {
 		initBrowser();// coming from TestBase method
 	}
 
-	@Test
+	@Test(priority = 1)
 	public void hoverOnPrenium() {
-		hp=new HomePage();
-		hp.hoverOverPremium1();//coming from Homepage
-		
-		/*Actions action = new Actions(driver);
-		action.moveToElement(hp.hoverOverPremium()).build().perform();
-		return;*/
+		hp = new HomePage();
+		hp.hoverOverPremium1();// coming from Homepage
+
 	}
+
+	@Test(priority = 2)
+	public void PremList() {
+		hp = new HomePage();
+		hp.PremList1();
+	}
+
+	@Test(priority = 3)
+	public void textPresent() {
+		hp = new HomePage();
+		hp.Try1();
+		hp.textpresent();
+	}
+	@AfterTest
+	public void closeBrowser(){
+		driver.close();
+		driver=null;
+	}
+
 }
-
-
-
