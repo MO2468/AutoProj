@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="8621" started-at="2020-05-18T06:42:20Z" finished-at="2020-05-18T06:42:29Z">
+  <suite name="Default suite" duration-ms="25096" started-at="2020-05-29T21:08:30Z" finished-at="2020-05-29T21:08:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="8621" started-at="2020-05-18T06:42:20Z" finished-at="2020-05-18T06:42:29Z">
-      <class name="com.ap.testcases.Test123">
-        <test-method status="PASS" signature="startUp()[pri:0, instance:com.ap.testcases.Test123@1cd072a9]" name="startUp" duration-ms="8605" started-at="2020-05-18T02:42:20Z" finished-at="2020-05-18T02:42:29Z">
+    <test name="Default test" duration-ms="25096" started-at="2020-05-29T21:08:30Z" finished-at="2020-05-29T21:08:55Z">
+      <class name="com.ap.testcases.Notification_Bell_Test">
+        <test-method status="PASS" signature="browserInitiazation()[pri:0, instance:com.ap.testcases.Notification_Bell_Test@42d80b78]" name="browserInitiazation" is-config="true" duration-ms="12637" started-at="2020-05-29T17:08:30Z" finished-at="2020-05-29T17:08:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startUp -->
-      </class> <!-- com.ap.testcases.Test123 -->
+        </test-method> <!-- browserInitiazation -->
+        <test-method status="PASS" signature="Bellvalid()[pri:1, instance:com.ap.testcases.Notification_Bell_Test@42d80b78]" name="Bellvalid" duration-ms="10783" started-at="2020-05-29T17:08:43Z" finished-at="2020-05-29T17:08:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Bellvalid -->
+        <test-method status="PASS" signature="displayPanel()[pri:2, instance:com.ap.testcases.Notification_Bell_Test@42d80b78]" name="displayPanel" duration-ms="1112" started-at="2020-05-29T17:08:53Z" finished-at="2020-05-29T17:08:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- displayPanel -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.ap.testcases.Notification_Bell_Test@42d80b78]" name="closeBrowser" is-config="true" duration-ms="521" started-at="2020-05-29T17:08:54Z" finished-at="2020-05-29T17:08:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.ap.testcases.Notification_Bell_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
