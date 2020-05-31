@@ -24,7 +24,9 @@ public class HomePage extends TestBase {
   WebElement CalendarDropdown;
 	@FindBy(css = "a[title='Top ETFs']")
 	WebElement etfButton;
-  @FindBy(xpath = "//a[contains(text(),'Premium')]")
+  @FindBy(xpath ="//a[@title='Screeners']")
+	WebElement screeners;
+	@FindBy(xpath = "//a[contains(text(),'Premium')]")
 	WebElement PremiumNav;
 	@FindBy(xpath = "//a[contains(@class,'nr-applet-nav-item Td(n) rapidnofollow nr-subnav-link D(ib) Lh(subNavItemHeight) W(100%) Ell Td(n)  Tt(n)! C($primaryColor) C(white)!:h Maw(200px)! C($finNavBlueText):h Maw(140px) Px(20px) C(darkTheme) Fz(13px)! Fw(b)!')]")
 	List<WebElement> PremNavList;
@@ -38,6 +40,7 @@ public class HomePage extends TestBase {
 	WebElement panel;
   @FindBy(css="li[class='nr-applet-main-nav-item Pend(navPaddings) Whs(nw) Fl(start) H(itemHeight) H(itemHeight_uhMagDesign)! Pend(30px)! closed-subnav']")
 	List<WebElement> headerLinks;
+
 	
 	
   public HomePage(){
@@ -70,6 +73,11 @@ public class HomePage extends TestBase {
 		return new TopETFPage();
 	}
 
+	public WebElement getScreeners()
+	{
+		return screeners;
+
+
 	public void hoverOverPremium1() {
 		Actions action = new Actions(driver);
 		action.moveToElement(PremiumNav).build().perform();
@@ -96,6 +104,7 @@ public class HomePage extends TestBase {
 		ass.assertEquals(str,
 				"During this difficult time, get an additional 20% off 3 months following the trial period.");
 		ass.assertAll();
+
 	}
 	
 
