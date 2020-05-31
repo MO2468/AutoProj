@@ -1,6 +1,5 @@
 package com.ap.pages;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +16,12 @@ public class HomePage extends TestBase {
 	WebElement CalendarDropdown;
 	@FindBy(css="a[title='Top ETFs']")
 	WebElement etfButton;
+	
+	@FindBy(css="a[title='Cryptocurrencies']")
+	WebElement Crypto; 
+	
+	@FindBy(css="a[title='checkbox-unchecked']")
+	WebElement Boxes;
 	
 	public HomePage(){
 		PageFactory.initElements(driver, this);
@@ -43,7 +48,12 @@ public class HomePage extends TestBase {
 		return new TopETFPage();
 	}
 	
-	
+	public CryptoCurrencyPage clickOnCrypto() {
+		Actions a = new Actions (driver);
+		a.moveToElement(MarketsNav).build().perform();
+		a.moveToElement(Crypto).click().build().perform();
+		return new CryptoCurrencyPage();
+	}
 	
 	
 	
