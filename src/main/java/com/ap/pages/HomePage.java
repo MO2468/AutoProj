@@ -2,6 +2,9 @@ package com.ap.pages;
 
 import java.util.List;
 
+=======
+import org.junit.Assert;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
 import com.ap.base.TestBase;
+import Data.HeaderTitleArrays;
 
 
 public class HomePage extends TestBase {
@@ -20,8 +24,8 @@ public class HomePage extends TestBase {
 	WebElement CalendarDropdown;
 	@FindBy(css = "a[title='Top ETFs']")
 	WebElement etfButton;
-
-	@FindBy(xpath = "//a[contains(text(),'Premium')]")
+  
+  @FindBy(xpath = "//a[contains(text(),'Premium')]")
 	WebElement PremiumNav;
 	@FindBy(xpath = "//a[contains(@class,'nr-applet-nav-item Td(n) rapidnofollow nr-subnav-link D(ib) Lh(subNavItemHeight) W(100%) Ell Td(n)  Tt(n)! C($primaryColor) C(white)!:h Maw(200px)! C($finNavBlueText):h Maw(140px) Px(20px) C(darkTheme) Fz(13px)! Fw(b)!')]")
 	List<WebElement> PremNavList;
@@ -33,8 +37,11 @@ public class HomePage extends TestBase {
 	WebElement bell;
 	@FindBy(xpath="//div[@id='header-notification-panel']")
 	WebElement panel;
-
-	public HomePage() {
+  @FindBy(css="li[class='nr-applet-main-nav-item Pend(navPaddings) Whs(nw) Fl(start) H(itemHeight) H(itemHeight_uhMagDesign)! Pend(30px)! closed-subnav']")
+	List<WebElement> headerLinks;
+	
+	
+  public HomePage(){
 		PageFactory.initElements(driver, this);
 	}
 
@@ -87,6 +94,7 @@ public class HomePage extends TestBase {
 		ass.assertAll();
 	}
 	
+
 	public void bellClick(){
 		Actions act=new Actions(driver);
 		act.moveToElement(bell).build().perform();;
@@ -94,5 +102,24 @@ public class HomePage extends TestBase {
 	public void panelDisplay(){
 		panel.isDisplayed();
 	}
+
+
+	public void clickAllHeaderLinks() throws InterruptedException{
+		HeaderTitleArrays htarray = new HeaderTitleArrays();
+		for(int i=0;i<9;i++){
+			if(i==7){//skips personal finance header since it opens in new tab
+				continue;
+			}
+			headerLinks.get(i).click();
+			Thread.sleep(3000);
+			String title=driver.getTitle();
+			System.out.println(title);
+			Thread.sleep(3000);
+			Assert.assertEquals(htarray.HeaderTitles[i], title);
+			driver.navigate().to(propt.getProperty("url"));
+	
+		}
+	}
+
 
 }
