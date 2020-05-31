@@ -43,11 +43,11 @@ public static String machineType()
 		String macMachine = System.getProperty("user.dir") +"/src/main/resources/chromedriver";
 		return macMachine;
 	}
-	else
+	else 
 	{
 		String windowMachine = System.getProperty("user.dir")+"/src/main/resources/chromedriver.exe";
 		return windowMachine;
-	}
+	}	
 }
 
 public static void initBrowser(){

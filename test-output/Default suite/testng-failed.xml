@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test verbose="2" name="Default test">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.ap.testcases.Test123"/>
+      <class name="com.ap.testcases.Notification_Bell_Test">
+        <methods>
+          <include name="browserInitiazation"/>
+          <include name="Bellvalid"/>
+        </methods>
+      </class> <!-- com.ap.testcases.Notification_Bell_Test -->
     </classes>
-  </test> <!-- Default test -->
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
