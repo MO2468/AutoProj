@@ -4,12 +4,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.ap.base.TestBase;
+import com.ap.pages.CalendarPage;
 import com.ap.pages.HomePage;
 
 public class CalendarTest extends TestBase {
 
 	
 	HomePage hp;
+	CalendarPage calp;
 	public CalendarTest(){
 		super();
 	}
@@ -19,6 +21,7 @@ public class CalendarTest extends TestBase {
 	public void setupDriver(){
 		initBrowser();
 		hp= new HomePage();
+		calp= new CalendarPage();
 	}
 	
 	@Test(priority=2)
@@ -29,6 +32,10 @@ public class CalendarTest extends TestBase {
 	public void verifycurrentDate2(){
 		hp.clickonMarkets();
 	}
-
+	@Test(priority=3)
+	public void verifydetails(){
+		hp.clickonMarkets();
+		calp.curentDatedetails();
+	}
 
 }
