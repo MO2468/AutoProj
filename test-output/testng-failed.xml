@@ -5,8 +5,10 @@
     <classes>
       <class name="com.ap.testcases.CryptoTest">
         <methods>
-          <include name="CryptoCurrencyPage"/>
+          <include name="LandonCryptoCurrencyPage"/>
+          <include name="ClickCryptoBoxes"/>
           <include name="setupDriver"/>
+          <include name="closeDriver"/>
         </methods>
       </class> <!-- com.ap.testcases.CryptoTest -->
     </classes>

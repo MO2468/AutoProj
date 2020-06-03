@@ -19,9 +19,13 @@ public class HomePage extends TestBase {
 	
 	@FindBy(css="a[title='Cryptocurrencies']")
 	WebElement Crypto; 
+
 	
-	@FindBy(css="a[title='checkbox-unchecked']")
-	WebElement Boxes;
+	@FindBy(css="a[title='Personal Finance']")
+	WebElement PersonalFinanceNav; 
+	
+	@FindBy(css="a[title='Rates']")
+	WebElement Rates; 
 	
 	public HomePage(){
 		PageFactory.initElements(driver, this);
@@ -53,6 +57,16 @@ public class HomePage extends TestBase {
 		a.moveToElement(MarketsNav).build().perform();
 		a.moveToElement(Crypto).click().build().perform();
 		return new CryptoCurrencyPage();
+	}
+	
+	
+	public RatesPage clickOnRates() {
+		Actions a = new Actions (driver);
+		a.moveToElement(PersonalFinanceNav).build().perform();
+		a.moveToElement(Rates).click().build().perform();
+		return new RatesPage();
+		
+		
 	}
 	
 	
